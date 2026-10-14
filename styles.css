@@ -1,0 +1,182 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --line: #334155;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --x: #38bdf8;
+  --o: #f472b6;
+  --win: #22c55e;
+  --shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, #1d4ed8 0%, transparent 42%),
+    var(--bg);
+}
+
+.app {
+  width: min(92vw, 420px);
+  padding: 28px 24px;
+  background: rgba(15, 23, 42, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.header {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 8px 0 6px;
+  font-size: 2rem;
+}
+
+.status {
+  margin: 0;
+  min-height: 1.4em;
+  color: var(--muted);
+}
+
+.controls,
+.scoreboard,
+.actions {
+  margin-top: 18px;
+}
+
+.mode-toggle,
+.scoreboard,
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.mode-toggle {
+  background: var(--panel);
+  padding: 6px;
+  border-radius: 999px;
+}
+
+.mode-btn,
+.actions button,
+.cell {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.mode-btn.active {
+  background: #0f172a;
+  color: var(--text);
+}
+
+.scoreboard {
+  justify-content: space-between;
+}
+
+.score {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background: var(--panel);
+  border-radius: 16px;
+}
+
+.mark {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.mark.x {
+  color: var(--x);
+}
+
+.mark.o {
+  color: var(--o);
+}
+
+.score strong {
+  font-size: 1.4rem;
+}
+
+.board {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 18px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  font-weight: 700;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.cell:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #273549;
+}
+
+.cell.x {
+  color: var(--x);
+}
+
+.cell.o {
+  color: var(--o);
+}
+
+.cell.win {
+  background: rgba(34, 197, 94, 0.18);
+  box-shadow: inset 0 0 0 2px var(--win);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.actions button {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+}
+
+.actions .ghost {
+  background: var(--panel);
+  color: var(--text);
+}
